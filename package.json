@@ -16,5 +16,8 @@
   },
   "scripts": {
     "build": "node scripts/build"
+  },
+  "dependencies": {
+    "pm2": "^2.10.4"
   }
 }
