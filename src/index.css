@@ -1,0 +1,52 @@
+$border: 1px solid #c3c3c3;
+$cell-bg: #f6f6f6;
+$cover-bg: #076480;
+
+.grid {
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
+  border-top: $border;
+  border-left: $border;
+  cursor: pointer;
+  user-select: none;
+}
+
+.row {
+  width: auto;
+}
+
+.cell {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-right: $border;
+  border-bottom: $border;
+  background: $cell-bg;
+
+  .cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: $cover-bg;
+
+    &:hover {
+      background: #0a85ab;
+    }
+  }
+
+  .flag {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: red;
+  }
+}

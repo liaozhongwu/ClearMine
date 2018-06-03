@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "removeComments": true,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "target": "ES5",
+    "moduleResolution": "node",
+    "lib": [ "dom", "es2017", "scripthost" ],
+    "typeRoots": [ "node_modules/@types/", "./types" ],
+    "baseUrl": ".",
+    "outDir": "./dist"
+  },
+  "include": [ "src/**/*" ],
+  "exclude": [ "node_modules" ]
+}

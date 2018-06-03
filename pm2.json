@@ -1,0 +1,15 @@
+{
+  "apps" : [{
+    "name"               : "clear-mine",
+    "script"             : "server/index.js",
+    "env": {
+      "NODE_ENV":        "production"
+    },
+    "exec_interpreter"   : "node",
+    "exec_mode"          : "cluster_mode",
+    "instances"          : 0,
+    "log_date_format"    : "YYYY-MM-DD HH:mm Z",
+    "max_memory_restart" : "700M",
+    "watch"              : false
+  }]
+}
