@@ -126,9 +126,12 @@ interface IProps {}
 interface IState {
   params: GameParams;
   grid: Cell[][];
+  showEmptyBlocks: boolean;
 }
 
 export default class Game extends React.Component<IProps, IState> {
+  public showEmptyBlocksTimeout: number | null = null;
+
   constructor(props: IProps) {
     super(props);
     const params = {
@@ -139,6 +142,7 @@ export default class Game extends React.Component<IProps, IState> {
     this.state = {
       params,
       grid: this.createGrid(params),
+      showEmptyBlocks: false,
     }
   }
 
@@ -309,10 +313,23 @@ export default class Game extends React.Component<IProps, IState> {
   }
 
   /**
+   * @description hint the empty blocks
+   */
+  hintEmptyBlocks() {
+    this.setState({ showEmptyBlocks: true });
+    if (this.showEmptyBlocksTimeout) {
+      window.clearTimeout(this.showEmptyBlocksTimeout);
+    }
+    this.showEmptyBlocksTimeout = window.setTimeout(() => {
+      this.setState({ showEmptyBlocks: false });
+    }, 3000);
+  }
+
+  /**
    * @description render grid
    */
   renderGrid() {
-    const { grid } = this.state;
+    const { grid, showEmptyBlocks } = this.state;
     return (
       <div className="grid">
         {
@@ -323,6 +340,9 @@ export default class Game extends React.Component<IProps, IState> {
                   let className = 'cell';
                   const content: React.ReactNode = (() => {
                     if (cell.isCover()) {
+                      if (showEmptyBlocks && cell.isEmpty()) {
+                        return <div className="cover hint"></div>;
+                      }
                       return <div className="cover"></div>;
                     } else if (cell.isFlag()) {
                       return <div className="flag"></div>;
@@ -368,9 +388,9 @@ export default class Game extends React.Component<IProps, IState> {
     return (
       <div className="game">
         <div className="header">
-          <button onClick={() => this.restart()}>开始游戏</button>
+          <button className="btn" onClick={() => this.restart()}>开始游戏</button>
+          <button className="btn" onClick={() => this.hintEmptyBlocks()}>空白区域</button>
           剩余雷数: { gameState.remain }
-          游戏状态: 
         </div>
         { this.renderGrid() }
       </div>

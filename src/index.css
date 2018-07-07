@@ -2,6 +2,18 @@ $border: 1px solid #c3c3c3;
 $cell-bg: #f6f6f6;
 $cover-bg: #076480;
 
+@keyframes hint {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .grid {
   display: inline-block;
   width: auto;
@@ -39,6 +51,10 @@ $cover-bg: #076480;
     &:hover {
       background: #0a85ab;
     }
+
+    &.hint {
+      animation: hint 1s ease 0s 3;
+    }
   }
 
   .flag {
@@ -48,5 +64,26 @@ $cover-bg: #076480;
     top: 0;
     bottom: 0;
     background: red;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  height: 60px;
+
+  .btn {
+    padding: 6px 12px;
+    background: #ffffff;
+    border: 1px solid #666666;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    outline: none;
+    transition: .3s;
+
+    &:hover {
+      background: #eeeeee;
+    }
   }
 }

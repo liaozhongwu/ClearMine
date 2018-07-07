@@ -15,7 +15,8 @@
     "webpack": "^4.10.2"
   },
   "scripts": {
-    "build": "node scripts/build"
+    "build": "node scripts/build",
+    "start": "node "
   },
   "dependencies": {
     "pm2": "^2.10.4"
