@@ -1,5 +1,6 @@
 {
   "name": "clear-mine",
+  "description": "the clear mine game",
   "version": "1.0.0",
   "devDependencies": {
     "@types/react": "^16.3.16",

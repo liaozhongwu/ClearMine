@@ -1,3 +1,3 @@
 ## description
 
-扫雷小游戏
+the clear mine game
